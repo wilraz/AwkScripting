@@ -1,0 +1,8 @@
+#Altered delimiter from : to a tab (both files)
+cat file.txt | tr '[\:]' '[\t]' >fileDelimited.txt  
+
+#Joined 2 files using the Hash values as keys          
+awk 'NR==FNR{a[$1]=$2;next} $2 in a {print $1,a[$2],$3}' inputFile1.txt inputFile2.txt > combined.txt   
+
+#Sorting the output file       
+sort combined.txt > combinedAndSorted.txt
